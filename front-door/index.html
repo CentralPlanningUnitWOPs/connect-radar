@@ -265,7 +265,8 @@ html:not(.js) .tabbar{display:none}
 .cta svg{width:18px;height:18px}
 .help{margin-top:.8rem;font-size:16.5px;color:#d9f5e7;max-width:52ch}
 /* signed by Dan: a person to reach, not a form */
-.signoff{display:flex;flex-direction:column;gap:.5rem;margin-top:1.6rem}
+.signoff{display:flex;flex-wrap:wrap;gap:1.1rem 2.6rem;margin-top:1.6rem}
+.signoff .sig{display:flex;flex-direction:column;gap:.5rem}
 .signoff .by{font-weight:800;font-size:22px;letter-spacing:-.02em;color:#fff;width:max-content}
 .signoff .org{font-family:var(--display);font-weight:500;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint)}
 .foot .tenant{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.1);font-size:15px}
@@ -518,7 +519,7 @@ html.lenis,html.lenis body{height:auto}
       <p class="help">Questions about this release, or support with anything on Connect: a member of the Connect team will pick it up.</p>
       <a class="cta" href="https://connectyourworkforce.com/?utm_source=radar&amp;utm_medium=release&amp;utm_campaign=w39-front-door">Reach out to the Connect team
         <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <p class="signoff"><span class="by" data-m="sign">Dan Towler</span><span class="org">Connect</span></p>
+      <p class="signoff"><span class="sig"><span class="by" data-m="sign">Dan Towler</span><span class="org">Connect</span></span><span class="sig"><span class="by" data-m="sign">Shaun Weeks</span><span class="org">Commercial Director</span></span></p>
       <p class="tenant">Already on Connect? Owners will find it under <b>Admin › Recruitment Front Door</b>.</p>
     </div>
     
