@@ -56,7 +56,7 @@ h1{margin-top:.7rem;font-size:clamp(40px,7vw,76px);color:#fff}
 .filters input:checked+label{background:var(--vivid);border-color:var(--vivid);color:var(--night)}
 .filters input:checked+label b{color:var(--night)}
 .filters input:focus-visible+label{outline:2px solid #fff;outline-offset:2px}
-body:has(#f-people:checked) [data-pillar]:not([data-pillar="people"]){display:none}body:has(#f-people:checked) .month:not(:has([data-pillar="people"])){display:none}body:has(#f-people:checked) .list:not(:has([data-pillar="people"])) .empty{display:block}body:has(#f-performance:checked) [data-pillar]:not([data-pillar="performance"]){display:none}body:has(#f-performance:checked) .month:not(:has([data-pillar="performance"])){display:none}body:has(#f-performance:checked) .list:not(:has([data-pillar="performance"])) .empty{display:block}
+body:has(#f-people:checked) [data-pillar]:not([data-pillar="people"]){display:none}body:has(#f-people:checked) .month:not(:has([data-pillar="people"])){display:none}body:has(#f-people:checked) .list:not(:has([data-pillar="people"])) .empty{display:block}body:has(#f-payments:checked) [data-pillar]:not([data-pillar="payments"]){display:none}body:has(#f-payments:checked) .month:not(:has([data-pillar="payments"])){display:none}body:has(#f-payments:checked) .list:not(:has([data-pillar="payments"])) .empty{display:block}body:has(#f-performance:checked) [data-pillar]:not([data-pillar="performance"]){display:none}body:has(#f-performance:checked) .month:not(:has([data-pillar="performance"])){display:none}body:has(#f-performance:checked) .list:not(:has([data-pillar="performance"])) .empty{display:block}body:has(#f-platform:checked) [data-pillar]:not([data-pillar="platform"]){display:none}body:has(#f-platform:checked) .month:not(:has([data-pillar="platform"])){display:none}body:has(#f-platform:checked) .list:not(:has([data-pillar="platform"])) .empty{display:block}
 .latest{padding-block:clamp(34px,5vw,52px) 0}
 .feat{position:relative;display:block;text-decoration:none;color:inherit;background:#fff;border-radius:18px;padding:24px 24px 22px;
   border:1px solid rgba(10,121,71,.22);box-shadow:0 30px 70px -48px rgba(0,48,32,.6)}
@@ -86,10 +86,13 @@ body:has(#f-people:checked) [data-pillar]:not([data-pillar="people"]){display:no
   padding:.9rem 1.3rem;border-radius:999px}
 .foot a.cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .foot .fh{margin:0 0 .6rem;color:#fff;font-size:clamp(24px,3.6vw,34px);font-weight:800;letter-spacing:-.035em;line-height:1.05}
-.signoff{display:flex;flex-wrap:wrap;gap:1.1rem 2.6rem;margin-top:1.4rem}
-.signoff .sig{display:flex;flex-direction:column;gap:.5rem}
-.signoff .by{font-weight:800;font-size:21px;letter-spacing:-.02em;color:#fff;width:max-content}
-.signoff .org{font-family:var(--display);font-weight:500;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mint)}
+.signoff{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:1.1rem 2.6rem;margin-top:1.4rem}
+.signoff .sgn{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.signoff .by{font-weight:800;font-size:21px;letter-spacing:-.02em;color:#fff;width:max-content;max-width:100%}
+.signoff .org{font-family:var(--display);font-weight:500;font-size:.62rem;line-height:1.55;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mint);max-width:24ch;text-wrap:balance}
+@media(max-width:599px){.signoff{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem}
+  .signoff .by{font-size:19px}.signoff .org{letter-spacing:.14em}}
 .foot .sig{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.14)}
 .foot .sig img{height:22px;width:auto}
 .foot .sig span{font-family:var(--display);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#7fbfa2}
@@ -205,19 +208,19 @@ html.lenis,html.lenis body{height:auto}
         <h1 data-m="dia">Release Radar</h1>
         <p class="lede" data-m="words">One feature a week, already live, shown on the real product. Every line checked against the code.</p>
       </div>
-      <svg class="scope" viewBox="-14 -14 228 228" role="img" aria-label="Every issue, by pillar"><circle class="disc" cx="100" cy="100" r="96"/><circle class="ring" cx="100" cy="100" r="88"/><circle class="ring" cx="100" cy="100" r="62"/><circle class="ring" cx="100" cy="100" r="36"/><line class="cross" x1="100" y1="10" x2="100" y2="190"/><line class="cross" x1="10" y1="100" x2="190" y2="100"/><line class="tick" x1="100.0" y1="14.0" x2="100.0" y2="6.0"/><line class="tick" x1="181.8" y1="73.4" x2="189.4" y2="71.0"/><line class="tick" x1="150.5" y1="169.6" x2="155.3" y2="176.0"/><line class="tick" x1="49.5" y1="169.6" x2="44.7" y2="176.0"/><line class="tick" x1="18.2" y1="73.4" x2="10.6" y2="71.0"/><text class="pl" x="100.0" y="-3.0">FLEET</text><text class="pl" x="200.8" y="70.2">PEOPLE</text><text class="pl" x="162.3" y="188.8">COMPLIANCE</text><text class="pl" x="37.7" y="188.8">PAYMENTS</text><text class="pl" x="-0.8" y="70.2">PERFORMANCE</text><g class="sweep" style="--b:72deg"><path d="M100 100 L41.1 34.6 A88 88 0 0 1 61.4 20.9 Z" fill-opacity="0.06"/><path d="M100 100 L61.4 20.9 A88 88 0 0 1 83.2 13.6 Z" fill-opacity="0.12"/><path d="M100 100 L83.2 13.6 A88 88 0 0 1 100.0 12.0 Z" fill-opacity="0.22"/></g><circle class="hub" cx="100" cy="100" r="36.0"/><image class="mark" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NzIgMzc2Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJtNTU5Ljc1LDE2Ni40M2wzMy43MywzMy43MXYtODUuOTdjLTYzLjY1LTYzLjY1LTE2Ni44NS02My42NS0yMzAuNSwwbC03Ni42Niw3Ni42NnY4NS45OGwxMTAuNC0xMTAuMzZjNDUuMDItNDUuMDEsMTE4LTQ1LjAyLDE2My4wMy0uMDFaIi8+PHBhdGggZmlsbD0iIzFkYzA3OSIgZD0ibTM5NS45OCwyNzVsLTMzLjczLTMzLjcxdjg1Ljk2YzYzLjY1LDYzLjY1LDE2Ni44NSw2My42NSwyMzAuNSwwbDc2LjY2LTc2LjY2di04NS45N2wtMTEwLjQsMTEwLjM2Yy00NS4wMiw0NS4wMS0xMTgsNDUuMDEtMTYzLjAzLDBaIi8+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0ibTYxLjk0LDE4Mi43MmMwLTcxLjA2LDU3LjYtMTI4LjY2LDEyOC42Ni0xMjguNjZoNjAuNTNWMGgtNjguMTNDODEuOTMsMCwwLDgxLjkzLDAsMTgyLjk5czgxLjkzLDE4Mi45OSwxODIuOTksMTgyLjk5aDE5LjE1YzIxLjMzLTIxLjMzLDMzLjI4LTMzLjI5LDU0LjYxLTU0LjYxaC02Ni4xNmMtNzEuMDYsMC0xMjguNjYtNTcuNi0xMjguNjYtMTI4LjY2WiIvPjwvc3ZnPgo=" x="71.0" y="83.8" width="58.0" height="32.5"/><a href="multi-cycle/" aria-label="W41: Multi-cycle days, planned from one rota"><circle class="dot" cx="171.3" cy="63.7" r="5"/></a><a href="front-door/" aria-label="W39: Indeed Automation &amp; Booking System"><circle class="dot old" cx="167.5" cy="78.1" r="3.6"/></a><a href="netradyne/" aria-label="W39: Netradyne camera events, driver by driver"><circle class="dot old" cx="38.8" cy="90.3" r="3.6"/></a></svg>
+      <svg class="scope" viewBox="-14 -14 228 228" role="img" aria-label="Every issue, by pillar"><circle class="disc" cx="100" cy="100" r="96"/><circle class="ring" cx="100" cy="100" r="88"/><circle class="ring" cx="100" cy="100" r="62"/><circle class="ring" cx="100" cy="100" r="36"/><line class="cross" x1="100" y1="10" x2="100" y2="190"/><line class="cross" x1="10" y1="100" x2="190" y2="100"/><line class="tick" x1="100.0" y1="14.0" x2="100.0" y2="6.0"/><line class="tick" x1="181.8" y1="73.4" x2="189.4" y2="71.0"/><line class="tick" x1="150.5" y1="169.6" x2="155.3" y2="176.0"/><line class="tick" x1="49.5" y1="169.6" x2="44.7" y2="176.0"/><line class="tick" x1="18.2" y1="73.4" x2="10.6" y2="71.0"/><text class="pl" x="100.0" y="-3.0">FLEET</text><text class="pl" x="200.8" y="70.2">PEOPLE</text><text class="pl" x="162.3" y="188.8">COMPLIANCE</text><text class="pl" x="37.7" y="188.8">PAYMENTS</text><text class="pl" x="-0.8" y="70.2">PERFORMANCE</text><g class="sweep" style="--b:216deg"><path d="M100 100 L41.1 34.6 A88 88 0 0 1 61.4 20.9 Z" fill-opacity="0.06"/><path d="M100 100 L61.4 20.9 A88 88 0 0 1 83.2 13.6 Z" fill-opacity="0.12"/><path d="M100 100 L83.2 13.6 A88 88 0 0 1 100.0 12.0 Z" fill-opacity="0.22"/></g><circle class="hub" cx="100" cy="100" r="36.0"/><image class="mark" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NzIgMzc2Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJtNTU5Ljc1LDE2Ni40M2wzMy43MywzMy43MXYtODUuOTdjLTYzLjY1LTYzLjY1LTE2Ni44NS02My42NS0yMzAuNSwwbC03Ni42Niw3Ni42NnY4NS45OGwxMTAuNC0xMTAuMzZjNDUuMDItNDUuMDEsMTE4LTQ1LjAyLDE2My4wMy0uMDFaIi8+PHBhdGggZmlsbD0iIzFkYzA3OSIgZD0ibTM5NS45OCwyNzVsLTMzLjczLTMzLjcxdjg1Ljk2YzYzLjY1LDYzLjY1LDE2Ni44NSw2My42NSwyMzAuNSwwbDc2LjY2LTc2LjY2di04NS45N2wtMTEwLjQsMTEwLjM2Yy00NS4wMiw0NS4wMS0xMTgsNDUuMDEtMTYzLjAzLDBaIi8+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0ibTYxLjk0LDE4Mi43MmMwLTcxLjA2LDU3LjYtMTI4LjY2LDEyOC42Ni0xMjguNjZoNjAuNTNWMGgtNjguMTNDODEuOTMsMCwwLDgxLjkzLDAsMTgyLjk5czgxLjkzLDE4Mi45OSwxODIuOTksMTgyLjk5aDE5LjE1YzIxLjMzLTIxLjMzLDMzLjI4LTMzLjI5LDU0LjYxLTU0LjYxaC02Ni4xNmMtNzEuMDYsMC0xMjguNjYtNTcuNi0xMjguNjYtMTI4LjY2WiIvPjwvc3ZnPgo=" x="71.0" y="83.8" width="58.0" height="32.5"/><a href="invoices-accountant/" aria-label="W41: Invoices and your accountant, in one place"><circle class="dot" cx="63.7" cy="171.3" r="5"/></a><a href="multi-cycle/" aria-label="W41: Multi-cycle days, planned from one rota"><circle class="dot old" cx="155.2" cy="71.9" r="3.6"/></a><a href="front-door/" aria-label="W39: Indeed Automation &amp; Booking System"><circle class="dot old" cx="150.4" cy="83.6" r="3.6"/></a><a href="netradyne/" aria-label="W39: Netradyne camera events, driver by driver"><circle class="dot old" cx="56.5" cy="93.1" r="3.6"/></a></svg>
     </div>
     <form class="filters" aria-label="Filter by pillar" onsubmit="return false">
-      <input type="radio" name="p" id="f-all" checked><label for="f-all">All</label><input type="radio" name="p" id="f-people"><label for="f-people"><b>02</b>People</label><input type="radio" name="p" id="f-performance"><label for="f-performance"><b>05</b>Performance</label>
+      <input type="radio" name="p" id="f-all" checked><label for="f-all">All</label><input type="radio" name="p" id="f-people"><label for="f-people"><b>02</b>People</label><input type="radio" name="p" id="f-payments"><label for="f-payments"><b>04</b>Payments</label><input type="radio" name="p" id="f-performance"><label for="f-performance"><b>05</b>Performance</label><input type="radio" name="p" id="f-platform"><label for="f-platform"><b></b>Platform</label>
     </form>
   </div>
 </header>
 <main>
   <section class="latest wrap" aria-label="Latest issue">
-    <a class="feat" href="multi-cycle/" data-pillar="people"><div class="bbeam" aria-hidden="true"><i></i></div><span class="meta"><span>Latest · W41</span><span>Connect People</span><span>8 Oct 2026</span></span><h2>Multi-cycle days, planned from one rota</h2><p>Give each site a Cycle 2 departure time, tick drivers onto it in the rota, and Day of Ops splits every van by cycle.</p><span class="go">Read W41</span></a>
+    <a class="feat" href="invoices-accountant/" data-pillar="payments"><div class="bbeam" aria-hidden="true"><i></i></div><span class="meta"><span>Latest · W41</span><span>Connect Payments</span><span>9 Oct 2026</span></span><h2>Invoices and your accountant, in one place</h2><p>Amazon sales invoices and purchase invoices, kept for seven years. Purchases are read and checked, a person confirms, and your accountant logs in.</p><span class="go">Read W41</span></a>
   </section>
   <section class="list wrap" aria-label="All issues">
-    <div class="month"><h3>October 2026</h3><a class="row" href="multi-cycle/" data-pillar="people"><span class="wk">41</span><span><b>Multi-cycle days, planned from one rota</b><br><span>Commercial wave, Cycle 1 and Cycle 2, ticked in the rota and split van by van on Day of Ops.</span></span><span class="pill">People</span></a></div><div class="month"><h3>September 2026</h3><a class="row" href="front-door/" data-pillar="people"><span class="wk">39</span><span><b>Indeed Automation &amp; Booking System</b><br><span>Applicants book themselves in; Connect nudges, reminds, and counts who came.</span></span><span class="pill">People</span></a><a class="row" href="netradyne/" data-pillar="performance"><span class="wk">39</span><span><b>Netradyne camera events, driver by driver</b><br><span>Netradyne events ranked by who to coach first, named via the rota, and mapped to the spots that keep repeating.</span></span><span class="pill">Performance</span></a></div>
+    <div class="month"><h3>October 2026</h3><a class="row" href="invoices-accountant/" data-pillar="payments"><span class="wk">41</span><span><b>Invoices and your accountant, in one place</b><br><span>Sales and purchase invoices in one vault, purchases read and checked, and a login for your accountant.</span></span><span class="pill">Payments</span></a><a class="row" href="owner-cockpit/" data-pillar="platform"><span class="wk">41</span><span><b>The Business Owner Cockpit, one page a week</b><br><span>Profit, six pillars and every site on one weekly page, with an owner email and a manager email.</span></span><span class="pill">Platform</span></a><a class="row" href="multi-cycle/" data-pillar="people"><span class="wk">41</span><span><b>Multi-cycle days, planned from one rota</b><br><span>Commercial wave, Cycle 1 and Cycle 2, ticked in the rota and split van by van on Day of Ops.</span></span><span class="pill">People</span></a></div><div class="month"><h3>September 2026</h3><a class="row" href="front-door/" data-pillar="people"><span class="wk">39</span><span><b>Indeed Automation &amp; Booking System</b><br><span>Applicants book themselves in; Connect nudges, reminds, and counts who came.</span></span><span class="pill">People</span></a><a class="row" href="netradyne/" data-pillar="performance"><span class="wk">39</span><span><b>Netradyne camera events, driver by driver</b><br><span>Netradyne events ranked by who to coach first, named via the rota, and mapped to the spots that keep repeating.</span></span><span class="pill">Performance</span></a></div>
     <p class="empty">Nothing on this pillar yet.</p>
   </section>
 </main>
@@ -226,7 +229,7 @@ html.lenis,html.lenis body{height:auto}
     <h2 class="fh" data-m="read">Need anything? Reach out.</h2>
     <p>Questions about any release, or support with anything on Connect: a member of the Connect team will pick it up.</p>
     <a class="cta" href="https://connectyourworkforce.com/?utm_source=radar&amp;utm_medium=release&amp;utm_campaign=index">Reach out to the Connect team</a>
-    <p class="signoff"><span class="sig"><span class="by" data-m="sign">Dan Towler</span><span class="org">Connect</span></span><span class="sig"><span class="by" data-m="sign">Shaun Weeks</span><span class="org">Commercial Director</span></span></p>
+    <p class="signoff"><span class="sgn"><span class="by" data-m="sign">Dan Towler</span><span class="org">Chief Solutions Officer</span></span><span class="sgn"><span class="by" data-m="sign">Shaun Weeks</span><span class="org">Commercial Director</span></span></p>
     <div class="sig"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDI4LjEyIDM3NSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgICBzdHJva2Utd2lkdGg6IDBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj4KICAgIDxnPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im04NDAuMDMsNjYuNDRjLTcwLjk1LDAtMTIxLjA2LDQ2LjE3LTEyMS4wNiwxMTMuNzR2MTg1LjgxaDYwLjh2LTE4NC42OGMwLTM2LjA0LDI1LjM0LTYxLjM3LDYwLjgyLTYxLjM3czYwLjI1LDI1LjM0LDYwLjI1LDYxLjM3djE4NC42OGg2MC44MXYtMTgzLjU2YzAtNjkuMjUtNTAuNjgtMTE1Ljk5LTEyMS42Mi0xMTUuOTlaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTExMzYuNzgsNjYuNDRjLTcwLjk1LDAtMTIxLjA2LDQ2LjE3LTEyMS4wNiwxMTMuNzR2MTg1LjgxaDYwLjgydi0xODQuNjhjMC0zNi4wNCwyNS4zMy02MS4zNyw2MC44LTYxLjM3czYwLjI1LDI1LjM0LDYwLjI1LDYxLjM3djE4NC42OGg2MC44MnYtMTgzLjU2YzAtNjkuMjUtNTAuNjgtMTE1Ljk5LTEyMS42Mi0xMTUuOTlaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTE0NDguNzMsNjYuNDRjLTg4Ljk3LDAtMTUzLjcxLDY0Ljc1LTE1My43MSwxNTQuMjhzNjQuNzUsMTU0LjI4LDE1NC44NCwxNTQuMjhjNDkuNTUsMCw5MC4wOS0xOS4xNSwxMTguOC01Ny40M2wtMzUuNDctMzYuNmMtMjAuODMsMjYuNDYtNDYuNzMsMzkuNDEtODIuNzcsMzkuNDEtNDkuNTUsMC04My44OS0yOS44NC05MS43OC03Ny43aDIzMS40MmMxLjEzLTUuNjMsMS42OS0xNS4yLDEuNjktMjEuOTYsMC04OC45Ni01OC0xNTQuMjgtMTQzLjAyLTE1NC4yOFptLTkwLjA5LDEzMi4zMmM3Ljg5LTQ3Ljg2LDQxLjExLTc4LjgzLDg4Ljk3LTc4Ljgzczc5LjM5LDMyLjY2LDgzLjg5LDc4LjgzaC0xNzIuODZaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTIwMjguMTIsMTI4LjR2LTUyLjk1aC04NC40VjBoLTYwLjg4djc1LjQ1aC0xMDguMDZjLTQwLjEzLDAtNzYuNDcsMTYuMjctMTAyLjc3LDQyLjUxLTI2LjI0LDI2LjMtNDIuNTEsNjIuNjQtNDIuNTEsMTAyLjc4LDAsODAuMiw2NS4wMSwxNDUuMjgsMTQ1LjI4LDE0NS4yOGw2Mi41MS01My40OWgtNTUuNTJjLTI1LjQyLDAtNDguNC0xMC4zLTY1LjAxLTI2Ljk4LTE2LjY4LTE2LjY4LTI2Ljk4LTM5LjY2LTI2Ljk4LTY1LjA4LDAtNTAuODUsNDEuMjItOTIuMDYsOTItOTIuMDZoMTAxLjA4djEzNi44MWMwLDY5LjIyLDM4LjMsMTA1LjgzLDEwNi40NCwxMDUuODMsMTIuNDEsMCwyMy42Ni0xLjY5LDMxLjUyLTUuMDJ2LTUzLjQ5Yy02LjcxLDIuNzgtMTQuMDMsMy45My0yMS45NywzLjkzLTM0LjMsMC01NS4xMi0xOC4wMy01NS4xMi01Ni44OHYtMTMxLjE4aDg0LjRaIi8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTU1OS43NSwxNjYuNDNsMzMuNzMsMzMuNzF2LTg1Ljk3Yy02My42NS02My42NS0xNjYuODUtNjMuNjUtMjMwLjUsMGwtNzYuNjYsNzYuNjZ2ODUuOThsMTEwLjQtMTEwLjM2YzQ1LjAyLTQ1LjAxLDExOC00NS4wMiwxNjMuMDMtLjAxWiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im0zOTUuOTgsMjc1bC0zMy43My0zMy43MXY4NS45NmM2My42NSw2My42NSwxNjYuODUsNjMuNjUsMjMwLjUsMGw3Ni42Ni03Ni42NnYtODUuOTdsLTExMC40LDExMC4zNmMtNDUuMDIsNDUuMDEtMTE4LDQ1LjAxLTE2My4wMywwWiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im02MS45NCwxODIuNzJjMC03MS4wNiw1Ny42LTEyOC42NiwxMjguNjYtMTI4LjY2aDYwLjUzVjBoLTY4LjEzQzgxLjkzLDAsMCw4MS45MywwLDE4Mi45OXM4MS45MywxODIuOTksMTgyLjk5LDE4Mi45OWgxOS4xNWMyMS4zMy0yMS4zMywzMy4yOC0zMy4yOSw1NC42MS01NC42MWgtNjYuMTZjLTcxLjA2LDAtMTI4LjY2LTU3LjYtMTI4LjY2LTEyOC42NloiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" alt="Connect" width="195" height="36"><span>Release Radar</span></div>
   </div>
 </footer>
@@ -241,7 +244,8 @@ var RoughNotation=function(t){"use strict";const e="http://www.w3.org/2000/svg";
    built on. Sources: the Magic UI MCP (@magicuidesign/mcp) and 21st.dev.
 
      Magic UI      ScrollProgress · TextAnimate (blurInUp) · DiaTextReveal · AnimatedBeam ·
-                   BorderBeam · Highlighter · BlurFade · ShineBorder · Backlight · ShimmerButton
+                   BorderBeam · Highlighter · BlurFade · ShineBorder · Backlight · ShimmerButton ·
+                   Safari (simple mode, the live demo's browser frame: built in issue.html/build.py)
      Aceternity    Tracing Beam                      (21st.dev #1149)
      Motion        Scroll word reveal                (21st.dev #24525, official examples)
                    Shared layout animation (tabs)    (21st.dev #24523, official examples)
@@ -465,6 +469,38 @@ var RoughNotation=function(t){"use strict";const e="http://www.w3.org/2000/svg";
         if (media) media.style.transform = "scale(" + (1.22 - 0.22 * v).toFixed(4) + ")";
         glow.style.opacity = (0.15 + 0.4 * v).toFixed(3);
       });
+    });
+  });
+
+  /* ── The live demo, the flagship (Dan, 9 Oct). The frame opens out as it arrives (Scroll
+        Reveal Image, as above, on the stage only: the poster itself is never scaled, so it
+        stays pin-sharp), Backlight glows behind it, and BorderBeam (Magic UI) runs round it
+        ONCE when it is first seen, then fades. No loop, and nothing on hover. */
+  safe("live-demo", function () {
+    $$(".lslot .stage").forEach(function (stage) {
+      var frame = $(".lframe", stage), img = $(".lposter", stage);
+      if (!frame) return;
+      var glow = document.createElement("div"); glow.className = "glow"; glow.setAttribute("aria-hidden", "true");
+      if (img) glow.style.backgroundImage = "url(" + (img.currentSrc || img.src) + ")";
+      stage.insertBefore(glow, stage.firstChild);
+      var target = stage.closest(".panels") || stage;
+      var p = M.motionValue(0), sp = M.springValue(p, { stiffness: 120, damping: 40 });
+      scroll(function (v) { p.set(v); }, { target: target, offset: ["start end", "start 30%"] });
+      sp.on("change", function (v) {
+        /* at rest the stage carries no transform at all, so the browser draws the poster 1:1 */
+        stage.style.transform = v > 0.995 ? "" : "scale(" + (0.9 + 0.1 * v).toFixed(4) + ")";
+        glow.style.opacity = (0.12 + 0.3 * v).toFixed(3);
+      });
+      var bb = $(".bbeam", frame), beam = $(".bbeam i", frame), done = false;
+      if (!beam) return;
+      bb.style.opacity = "0";
+      inView(frame, function () {
+        if (done) return; done = true;
+        bb.style.opacity = "1";
+        animate(beam, { offsetDistance: ["0%", "100%"] }, { duration: 2.8, delay: 0.3, ease: [0.45, 0, 0.2, 1] })
+          .then(function () { return animate(bb, { opacity: [1, 0] }, { duration: 0.6 }); })
+          .then(function () { bb.style.display = "none"; });
+      }, { amount: 0.45 });
     });
   });
 
